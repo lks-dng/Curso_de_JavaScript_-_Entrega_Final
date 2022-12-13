@@ -9,6 +9,34 @@ class Producto {
     }
 }
 
+const bienvenido = document.getElementById('bienvenido')
+const formularioUsuario = document.getElementById('formulario')
+const contacto = document.getElementById('contacto')
+const nombreUsuario = document.getElementById('nombre')
+const apellidoUsuario = document.getElementById('apellido')
+const correoUsuario = document.getElementById('correo')
+const submitButtom = document.getElementById('ingresar')
+const textoTotal = document.getElementById('textoTotal')
+
+//Obj para guardar los datos de usuario
+const infoUsuario = {}
+
+//Evento Submit
+formularioUsuario.onsubmit = (e) =>{
+    e.preventDefault()
+    infoUsuario.nombre = nombreUsuario.value
+    infoUsuario.apellido = apellidoUsuario.value
+    infoUsuario.correo = correoUsuario.value
+    console.log(infoUsuario)
+    localStorage.setItem('infoUsuario',JSON.stringify(infoUsuario))
+}
+
+const infoUsuarioStorage = JSON.parse(localStorage.getItem('infoUsuario'))
+console.log(infoUsuarioStorage)
+if(infoUsuario.nombre !== "" || infoUsuario.apellido !== ""){
+    bienvenido.innerText = `¡Hola ${infoUsuarioStorage.nombre} ${infoUsuarioStorage.apellido}, bienvenido de vuelta!`
+}
+
 // Lista de productos: 
 
 const productsArray = []
@@ -89,9 +117,9 @@ botonesAgregar.forEach(boton=> {
 const botonFinalizar = document.querySelector('#finalizar')
 botonFinalizar.onclick = () => {
     const totalCompra = carrito.map(prod=>prod.price*prod.cantidad).reduce((elem1,elem2)=>elem1+elem2)
-    if(totalCompra >= 6000){
-        alert(`El total de tu compra es: ${totalCompra}. ¡El envío es gratis!`) 
+    if(totalCompra >= 6500){
+        textoTotal.innerText = `Total de la compra:  ${totalCompra}. El envío es gratis!!`
     }else{
-        alert(`El total de tu compra es: ${totalCompra}. El envío tiene un costo de: $360`)
+        textoTotal.innerText = `Total de la compra:  ${totalCompra}. El envío es tiene un costo de $370!!`
     }
 }

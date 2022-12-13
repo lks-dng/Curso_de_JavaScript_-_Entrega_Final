@@ -11,9 +11,19 @@
 </head>
 <body>
     <h1>Sentida Botánica</h1>
-    <h2>Envío gratis en compras superiores a $5500</h2>
+    <h2 id="bienvenido"></h2>
+    
+    <form id="formulario">
+        <Input type=text name="Nombre" id="nombre" class="texto" placeholder="Ingresa tu nombre">
+        <Input type=text name="Apellido" id="apellido" class="texto" placeholder="Ingresa tu apellido">
+        <input type="text" name="Correo" id="correo" placeholder="Correo Electronico">
+        <input type="submit" value="INGRESAR" id="ingresar">
+    </form>
+    
+    <h4>Envío gratis en compras superiores a $5500</h4>
     <div class="row" id="divProductos"></div>
     <button class="btn btn-success" id="finalizar">Finalizar Compra</button>
+    <h3 id="textoTotal">Total de la compra: $0</h3>
     <script src="index.js"></script>
 </body>
 </html>
