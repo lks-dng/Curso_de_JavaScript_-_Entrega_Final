@@ -86,7 +86,7 @@ productsArray.forEach(producto => {
     divProductos.innerHTML += `
     <div id="${producto.ID}" class="card cardProducto">
         <div class="card-body">
-            <img src="/Images/Cuidado Capilar/${producto.Img}.jpg" alt="" height="150">
+            <img src="${producto.Img}.jpg" alt="" height="150">
             <h5 class="card-title">${producto.Name}</h5>
             <p class="card-text">$${producto.Price}</p>
             <button id="${producto.ID}" class="btn btn-primary">AGREGAR</button>
